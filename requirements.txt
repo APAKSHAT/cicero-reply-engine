@@ -2,6 +2,7 @@ anthropic>=1.2.0
 openai>=3.0.0        # only for the OpenRouter backend (src/cicero/llm.py)
 pydantic>=2.0
 PyYAML>=6.0
+pytest>=8.0          # `make test` runs the suite with no API key needed
 
 # Only needed to run against a real inbox (src/cicero/adapters/google.py).
 # The demo runs entirely on the mock adapters without these.
