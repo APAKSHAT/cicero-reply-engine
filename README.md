@@ -127,3 +127,8 @@ before this points at a real inbox.
 
 The reasoning behind the design, and the six questions from the brief, are in
 [WRITEUP.md](WRITEUP.md).
+
+---
+
+Written as a take-home assignment and shared for evaluation only. See
+[LICENSE](LICENSE) — all rights reserved.
