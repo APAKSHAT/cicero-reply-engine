@@ -14,13 +14,17 @@ prompt.
 ## Run it
 
 ```bash
-make install
-export ANTHROPIC_API_KEY=sk-ant-...     # or OPENROUTER_API_KEY
+make install                            # venv + an editable install
 make test                               # 158 tests, no API key needed
+export ANTHROPIC_API_KEY=sk-ant-...     # or OPENROUTER_API_KEY
 make demo                               # full pipeline on the sample inbox
 make review                             # work the human review queue
 make ledger                             # every decision the system has made
 ```
+
+`make test` needs no key and no network. Without a key, `make demo` still runs
+end to end and escalates everything to a human, which is what it is supposed to
+do when the model is unavailable.
 
 `make demo` is a dry run: it classifies, drafts, verifies and picks times, then
 stops before sending or booking. `make live` does the same against the mock
@@ -29,9 +33,10 @@ adapters with sending switched on.
 Against real accounts:
 
 ```bash
-python -m cicero.cli auth               # one-time Google OAuth
-python -m cicero.cli run --real         # dry run over a real Gmail inbox
-python -m cicero.cli run --real --live  # sends and books for real
+make install-google                     # adds the Google API clients
+cicero auth                             # one-time OAuth
+cicero run --real                       # dry run over a real Gmail inbox
+cicero run --real --live                # sends and books for real
 ```
 
 ## Flow

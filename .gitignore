@@ -8,3 +8,6 @@ credentials.json
 .pytest_cache/
 data/contacts.live.json
 .DS_Store
+*.egg-info/
+build/
+dist/

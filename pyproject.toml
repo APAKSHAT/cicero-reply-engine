@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cicero-reply-engine"
+version = "0.1.0"
+description = "Reads replies to acquisition outreach, drafts answers, and books calls when asked."
+requires-python = ">=3.10"
+dependencies = [
+    "anthropic>=1.2.0",
+    "openai>=3.0.0",
+    "pydantic>=2.0",
+    "PyYAML>=6.0",
+]
+
+[project.optional-dependencies]
+# Only needed to run against a real inbox: `pip install -e ".[google]"`
+google = [
+    "google-api-python-client>=2.100.0",
+    "google-auth-oauthlib>=1.2.0",
+]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+cicero = "cicero.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
