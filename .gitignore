@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.pyc
+cicero.db
+.env
+credentials.json
+.google-token.json
+.pytest_cache/
+data/contacts.live.json
+.DS_Store

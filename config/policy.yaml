@@ -1,0 +1,86 @@
+# ---------------------------------------------------------------------------
+# The policy layer. This file is the answer to "when does a machine get to send
+# an email on our behalf". It is deliberately data, not code, so it can be
+# tightened without a deploy and reviewed by someone who does not read Python.
+# ---------------------------------------------------------------------------
+
+# Global kill switch. `dry_run: true` means nothing is ever sent or booked --
+# the pipeline runs end to end and writes to the ledger only.
+dry_run: true
+
+confidence:
+  # Below this, no reply is ever sent automatically regardless of intent.
+  auto_send_floor: 0.85
+  # Below this we do not even trust the classification enough to draft from it.
+  draft_floor: 0.55
+
+# Intents an automated reply may be sent for, without a human, when every other
+# gate passes. Everything not listed here goes to a human by construction.
+auto_send_intents:
+  - schedule_request
+  - interested
+  - question
+  - needs_info
+  - not_interested
+  - deferred
+
+# Intents that always go to a human, no matter how confident the model is.
+always_human_intents:
+  - negotiation
+  - hostile
+  - referral
+  - unclear
+
+# Intents that end the conversation without a reply.
+suppress_intents:
+  - auto_reply
+  - opt_out          # handled by suppression + CRM flag, not by a reply
+
+# Red flags from the classifier that force a human even on an allowed intent.
+escalate_on_red_flags:
+  - mentions_price_or_valuation
+  - mentions_legal_or_litigation
+  - mentions_nda_or_contract_terms
+  - mentions_other_buyer_or_process
+  - sender_is_upset
+  - asks_for_something_we_cannot_promise
+  - identity_uncertain
+  - references_unknown_prior_commitment
+
+rate_limits:
+  # If we cannot tie the sender to a CRM record, we do not know who we are
+  # talking to. Those always go to a person. (Note this is deliberately NOT
+  # "a human reads the first reply to everyone" -- for contacts we chose to
+  # mail, an automated first reply is the entire point of the system.)
+  require_human_for_unknown_senders: true
+  # Hard stop on runaway threads: after N consecutive automated replies with no
+  # human involvement, hand the thread to a person.
+  max_consecutive_auto_replies: 2
+  # Never auto-reply on a thread a human has already written into.
+  never_auto_reply_after_human_touch: true
+  # Global circuit breaker for one run.
+  max_auto_sends_per_run: 25
+
+scheduling:
+  # A calendar invite is only created when the sender has actually consented to
+  # a call. `explicit` = they asked for one or accepted a slot we proposed.
+  require_explicit_consent: true
+  # If they said yes but named no time, we propose slots and wait rather than
+  # dropping an invite on their calendar.
+  propose_before_booking: true
+  slots_to_propose: 3
+  working_hours: [9, 17]          # local to the CONTACT's timezone
+  working_days: [0, 1, 2, 3, 4]   # Mon-Fri
+  duration_minutes: 30
+  buffer_minutes: 15              # gap required around existing events
+  min_notice_hours: 24            # never book something starting sooner
+  max_days_out: 10
+  max_meetings_per_day: 4
+  organizer_timezone: "America/New_York"
+  organizer_working_hours: [8, 18]
+
+verification:
+  # The critic must return at least this score on every rubric axis.
+  min_rubric_score: 4             # out of 5
+  max_words: 200
+  min_words: 15

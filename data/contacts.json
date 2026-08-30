@@ -1,0 +1,135 @@
+[
+  {
+    "email": "dana@harborlinemech.com",
+    "name": "Dana Whitfield",
+    "role": "founder",
+    "company": "Harborline Mechanical",
+    "timezone": "America/Chicago",
+    "deal_stage": "cold_outreach",
+    "notes": "HVAC contractor, ~$8M rev, owner-operator 22 years. First touch 2026-08-24."
+  },
+  {
+    "email": "r.okafor@meridianbizbrokers.com",
+    "name": "Rachel Okafor",
+    "role": "broker",
+    "company": "Meridian Business Brokers",
+    "timezone": "America/New_York",
+    "deal_stage": "cold_outreach",
+    "notes": "Sell-side broker, Midwest industrials. Has sent us two listings before."
+  },
+  {
+    "email": "tom@prairielabelco.com",
+    "name": "Tom Reddick",
+    "role": "founder",
+    "company": "Prairie Label Co",
+    "timezone": "America/Denver",
+    "deal_stage": "cold_outreach",
+    "notes": "Label printing, second-generation owner."
+  },
+  {
+    "email": "sgarrison@keystoneadvisorygroup.com",
+    "name": "Sam Garrison",
+    "role": "broker",
+    "company": "Keystone Advisory Group",
+    "timezone": "America/Los_Angeles",
+    "deal_stage": "slots_proposed",
+    "proposed_slots": [
+      "2026-09-01T14:00:00-04:00",
+      "2026-09-02T11:00:00-04:00",
+      "2026-09-03T15:30:00-04:00"
+    ],
+    "notes": "We proposed three times on 2026-08-27 for an intro call."
+  },
+  {
+    "email": "marisol@vertexpackaging.com",
+    "name": "Marisol Reyes",
+    "role": "founder",
+    "company": "Vertex Packaging",
+    "timezone": "America/New_York",
+    "deal_stage": "cold_outreach",
+    "notes": "Contract packaging, ~$14M rev."
+  },
+  {
+    "email": "gcallahan@callahanindustrial.com",
+    "name": "Greg Callahan",
+    "role": "founder",
+    "company": "Callahan Industrial Supply",
+    "timezone": "America/Chicago",
+    "deal_stage": "cold_outreach",
+    "notes": "Distribution. Prior rep noted he is price-focused."
+  },
+  {
+    "email": "p.lindqvist@northgatecapitalpartners.com",
+    "name": "Petra Lindqvist",
+    "role": "broker",
+    "company": "Northgate Capital Partners",
+    "timezone": "America/New_York",
+    "deal_stage": "cold_outreach",
+    "notes": "Lower-middle-market M&A advisory."
+  },
+  {
+    "email": "bill@summitfabrication.com",
+    "name": "Bill Trainor",
+    "role": "founder",
+    "company": "Summit Fabrication",
+    "timezone": "America/Denver",
+    "deal_stage": "cold_outreach",
+    "notes": "Metal fabrication, ~$6M rev."
+  },
+  {
+    "email": "j.moreau@atlascoldstorage.com",
+    "name": "Jean Moreau",
+    "role": "founder",
+    "company": "Atlas Cold Storage",
+    "timezone": "America/New_York",
+    "deal_stage": "engaged",
+    "auto_replies_sent": 2,
+    "notes": "Already had two automated replies. Under rate limit this must go to a human."
+  },
+  {
+    "email": "hollis@redoakdental.com",
+    "name": "Hollis Barrett",
+    "role": "founder",
+    "company": "Red Oak Dental Partners",
+    "timezone": "America/New_York",
+    "deal_stage": "cold_outreach",
+    "human_has_touched_thread": true,
+    "notes": "A partner replied by hand on this thread yesterday."
+  },
+  {
+    "email": "kevin@lakeshorelogistics.com",
+    "name": "Kevin Dozier",
+    "role": "founder",
+    "company": "Lakeshore Logistics",
+    "timezone": "America/Chicago",
+    "deal_stage": "cold_outreach",
+    "notes": "Regional freight brokerage."
+  },
+  {
+    "email": "priya@silverbrooktooling.com",
+    "name": "Priya Raman",
+    "role": "founder",
+    "company": "Silverbrook Tooling",
+    "timezone": "America/Los_Angeles",
+    "deal_stage": "cold_outreach",
+    "notes": "Precision tooling, ~$9M rev. Founder-led, no succession plan on file."
+  },
+  {
+    "email": "d.laurent@crestwaymachining.com",
+    "name": "Denis Laurent",
+    "role": "founder",
+    "company": "Crestway Machining",
+    "timezone": "America/New_York",
+    "deal_stage": "cold_outreach",
+    "notes": "Precision machining, ~$12M rev."
+  },
+  {
+    "email": "w.eastman@pinnacledealadvisors.com",
+    "name": "Walt Eastman",
+    "role": "broker",
+    "company": "Pinnacle Deal Advisors",
+    "timezone": "America/Chicago",
+    "deal_stage": "cold_outreach",
+    "notes": "Sell-side broker, has sent one listing before."
+  }
+]
